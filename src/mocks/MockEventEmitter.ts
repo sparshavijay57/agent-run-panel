@@ -15,10 +15,13 @@ export class MockEventEmitter {
   private timers: ReturnType<typeof setTimeout>[] = []
   private stopped = false
 
-  constructor(
-    private fixture: FixtureEvent[],
-    private options: EmitterOptions
-  ) {}
+  private fixture: FixtureEvent[]
+  private options: EmitterOptions
+
+ constructor(fixture: FixtureEvent[], options: EmitterOptions) {
+  this.fixture = fixture
+  this.options = options
+}
 
   start() {
     this.stopped = false
